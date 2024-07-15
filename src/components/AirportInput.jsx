@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 
+// COMPONENTE PER LA GESTIONE DELL'INPUT DEGLI AEROPORTI
 function AirportInput({
   label,
   value,

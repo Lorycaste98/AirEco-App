@@ -6,6 +6,7 @@ import ResetButton from './ResetButton';
 import Result from './Result';
 import useAirportSelector from '../hooks/useAirportSelector';
 
+// FUNZIONE PRINCIPALE DEL COMPONENTE CHE UNISCE TUTTI I COMPONENTI
 function FootprintCalculator() {
   const {
     departureAirport,
@@ -22,9 +23,25 @@ function FootprintCalculator() {
     handleSuggestionClick,
     calculateFootprint,
     resetFields,
+    airportsLoading,
+    airportsError,
+    footprintLoading,
+    footprintError,
   } = useAirportSelector();
 
+  // Verifica se è possibile calcolare l'impronta ecologica
   const canCalculate = departureAirport.trim() !== '' && arrivalAirport.trim() !== '' && passengers > 0;
+
+  // Funzioni per gestire il cambio di aeroporto di partenza e arrivo
+  const handleDepartureChange = (e) => {
+    setDepartureAirport(e.target.value);
+    handleSearch(e.target.value, 'departure');
+  };
+
+  const handleArrivalChange = (e) => {
+    setArrivalAirport(e.target.value);
+    handleSearch(e.target.value, 'arrival');
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -32,38 +49,46 @@ function FootprintCalculator() {
         <h2 className="text-lg font-semibold text-center mb-4">
           Calcolatore dell'impronta ecologica di un viaggio aereo
         </h2>
-        <AirportInput
-          label="Aeroporto di partenza"
-          placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
-          value={departureAirport}
-          onChange={(e) => {
-            setDepartureAirport(e.target.value);
-            handleSearch(e.target.value, 'departure');
-          }}
-          onKeyDown={(e) => handleKeyDown(e, 'departure')}
-          suggestions={suggestions.departure}
-          selectedIndex={selectedIndex.departure}
-          handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'departure')}
-        />
-        <AirportInput
-          label="Aeroporto di arrivo"
-          placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
-          value={arrivalAirport}
-          onChange={(e) => {
-            setArrivalAirport(e.target.value);
-            handleSearch(e.target.value, 'arrival');
-          }}
-          onKeyDown={(e) => handleKeyDown(e, 'arrival')}
-          suggestions={suggestions.arrival}
-          selectedIndex={selectedIndex.arrival}
-          handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
-        />
-        <PassengerInput value={passengers} onChange={(newValue) => setPassengers(newValue)} />{' '}
-        <div className="flex space-x-2">
-          <CalculateButton onClick={calculateFootprint} disabled={!canCalculate} />
-          <ResetButton onClick={resetFields} />
-        </div>
-        <Result footprint={footprint} />
+        {airportsLoading ? (
+          <p>Loading airports...</p>
+        ) : airportsError ? (
+          <p>Error loading airports: {airportsError.message}</p>
+        ) : (
+          <>
+            <AirportInput
+              label="Aeroporto di partenza"
+              placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
+              value={departureAirport}
+              onChange={(e) => handleDepartureChange(e, setDepartureAirport, handleSearch)}
+              onKeyDown={(e) => handleKeyDown(e, 'departure')}
+              suggestions={suggestions.departure}
+              selectedIndex={selectedIndex.departure}
+              handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'departure')}
+            />
+            <AirportInput
+              label="Aeroporto di arrivo"
+              placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
+              value={arrivalAirport}
+              onChange={(e) => handleArrivalChange(e, setArrivalAirport, handleSearch)}
+              onKeyDown={(e) => handleKeyDown(e, 'arrival')}
+              suggestions={suggestions.arrival}
+              selectedIndex={selectedIndex.arrival}
+              handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
+            />
+            <PassengerInput value={passengers} onChange={(newValue) => setPassengers(newValue)} />
+            <div className="flex space-x-2">
+              <CalculateButton onClick={calculateFootprint} disabled={!canCalculate || footprintLoading} />
+              <ResetButton onClick={resetFields} />
+            </div>
+            {footprintLoading ? (
+              <p>Calculating footprint...</p>
+            ) : footprintError ? (
+              <p>Error calculating footprint: {footprintError.message}</p>
+            ) : (
+              <Result footprint={footprint} />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

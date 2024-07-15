@@ -1,5 +1,6 @@
 import React from 'react';
 
+// COMPONENTE PER IL RISULTATO DEL CALCOLO
 function Result({ footprint }) {
   return (
     footprint !== null && (

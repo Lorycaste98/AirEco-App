@@ -1,5 +1,6 @@
 import React from 'react';
 
+// COMPONENTE PER IL PULSANTE DI CALCOLO
 function CalculateButton({ onClick, disabled }) {
   return (
     <button

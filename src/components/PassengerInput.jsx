@@ -1,5 +1,6 @@
 import React from 'react';
 
+// COMPONENTE PER L'INPUT DEL NUMERO DI PASSEGGERI
 function PassengerInput({ value, onChange }) {
   const handleChange = (e) => {
     const newValue = e.target.value;
