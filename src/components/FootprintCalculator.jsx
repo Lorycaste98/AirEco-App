@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AirportInput from './AirportInput';
 import PassengerInput from './PassengerInput';
 import CalculateButton from './CalculateButton';
 import ResetButton from './ResetButton';
 import Result from './Result';
 import useAirportSelector from '../hooks/useAirportSelector';
+import DarkModeContext from '../stores/DarkModeContext';
 
 // FUNZIONE PRINCIPALE DEL COMPONENTE CHE UNISCE TUTTI I COMPONENTI
 function FootprintCalculator() {
@@ -29,6 +30,9 @@ function FootprintCalculator() {
     footprintError,
   } = useAirportSelector();
 
+  // Recupera il valore di darkMode dal contesto
+  const { darkMode } = useContext(DarkModeContext);
+
   // Verifica se è possibile calcolare l'impronta ecologica
   const canCalculate = departureAirport.trim() !== '' && arrivalAirport.trim() !== '' && passengers > 0;
 
@@ -44,9 +48,11 @@ function FootprintCalculator() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-xl p-4 bg-white shadow-md rounded-lg">
-        <h2 className="text-lg font-semibold text-center mb-4">
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen dark:bg-gray-700 ${darkMode ? 'dark' : ''}`}
+    >
+      <div className="w-full max-w-xl p-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
+        <h2 className="text-lg font-semibold text-center mb-4 dark:text-white">
           Calcolatore dell'impronta ecologica di un viaggio aereo
         </h2>
         {airportsLoading ? (

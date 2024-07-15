@@ -1,11 +1,16 @@
 import React from 'react';
 import FootprintCalculator from './components/FootprintCalculator';
+import Navbar from './components/Navbar';
+import { DarkModeProvider } from './stores/DarkModeContext';
 
 const App = () => {
   return (
-    <div>
-      <FootprintCalculator />
-    </div>
+    <DarkModeProvider>
+      <div>
+        <Navbar />
+        <FootprintCalculator />
+      </div>
+    </DarkModeProvider>
   );
 };
 

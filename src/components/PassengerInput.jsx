@@ -11,10 +11,10 @@ function PassengerInput({ value, onChange }) {
 
   return (
     <div>
-      <label className="block text-gray-700">Numero di passeggeri</label>
+      <label className="block text-gray-700 dark:text-white">Numero di passeggeri</label>
       <input
         type="number"
-        className="w-full p-2 mb-4 text-gray-700 bg-gray-200 rounded border border-gray-300"
+        className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300"
         value={value}
         onChange={handleChange}
         min="0"

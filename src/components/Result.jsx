@@ -4,7 +4,7 @@ import React from 'react';
 function Result({ footprint }) {
   return (
     footprint !== null && (
-      <p className="mt-4 text-center">
+      <p className="mt-8 text-center text-2xl dark:text-white no-transition">
         L'impronta ecologica del tuo viaggio è: <b>{footprint}</b> unità di CO2
       </p>
     )
