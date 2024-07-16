@@ -49,16 +49,18 @@ function FootprintCalculator() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen dark:bg-gray-700 ${darkMode ? 'dark' : ''}`}
+      className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
+        darkMode ? 'dark' : ''
+      }`}
     >
-      <div className="w-full max-w-xl p-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
+      <div className="w-auto mx-10 md:w-full md:max-w-xl p-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
         <h2 className="text-lg font-semibold text-center mb-4 dark:text-white">
           Calcolatore dell'impronta ecologica di un viaggio aereo
         </h2>
         {airportsLoading ? (
-          <p>Loading airports...</p>
+          <p>Sto caricando gli aeroporti...</p>
         ) : airportsError ? (
-          <p>Error loading airports: {airportsError.message}</p>
+          <p>Errore caricamento aeroporti: {airportsError.message}</p>
         ) : (
           <>
             <AirportInput
@@ -81,15 +83,19 @@ function FootprintCalculator() {
               selectedIndex={selectedIndex.arrival}
               handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
             />
-            <PassengerInput value={passengers} onChange={(newValue) => setPassengers(newValue)} />
-            <div className="flex space-x-2">
+            <PassengerInput
+              placeholder="Inserisci un numero"
+              value={passengers}
+              onChange={(newValue) => setPassengers(newValue)}
+            />
+            <div className="flex flex-col gap-3 md:flex-row mt-3">
               <CalculateButton onClick={calculateFootprint} disabled={!canCalculate || footprintLoading} />
               <ResetButton onClick={resetFields} />
             </div>
             {footprintLoading ? (
-              <p>Calculating footprint...</p>
+              <p>Sto calcolando...</p>
             ) : footprintError ? (
-              <p>Error calculating footprint: {footprintError.message}</p>
+              <p>Errore nel calcolo: {footprintError.message}</p>
             ) : (
               <Result footprint={footprint} />
             )}
