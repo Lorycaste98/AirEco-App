@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import AirportInput from './AirportInput';
 import PassengerInput from './PassengerInput';
-import CalculateButton from './CalculateButton';
-import ResetButton from './ResetButton';
+import CalculateButton from './Buttons/CalculateButton';
+import ResetButton from './Buttons/ResetButton';
 import Result from './Result';
 import useAirportSelector from '../hooks/useAirportSelector';
 import DarkModeContext from '../stores/DarkModeContext';
@@ -53,8 +53,8 @@ function FootprintCalculator() {
         darkMode ? 'dark' : ''
       }`}
     >
-      <div className="w-auto mx-10 md:w-full md:max-w-xl p-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
-        <h2 className="text-lg font-semibold text-center mb-4 dark:text-white">
+      <div className="mx-auto w-full max-w-[320px] sm:max-w-sm md:max-w-2xl py-4 px-10 md:px-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
+        <h2 className="text-xl font-bold text-center mb-4 dark:text-white uppercase underline underline-offset-4 decoration-[#008037]">
           Calcolatore dell'impronta ecologica di un viaggio aereo
         </h2>
         {airportsLoading ? (

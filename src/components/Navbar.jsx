@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { GoSun, GoMoon } from 'react-icons/go';
 import DarkModeContext from '../stores/DarkModeContext';
-import DarkModeButton from './DarkModeButton';
+import DarkModeButton from './Buttons/DarkModeButton';
 import Logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 
@@ -24,10 +24,10 @@ function Navbar() {
 
         <div className="max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
-            <a href="/" className="flex-shrink-0 flex items-center gap-4">
+            <Link to="/" className="flex-shrink-0 flex items-center gap-4">
               <img className="h-20 w-20" src={Logo} alt="Logo" />
               <p className="text-4xl hidden md:block text-gray-800 dark:text-white font-sans">AIRECO</p>
-            </a>
+            </Link>
             <div className="hidden md:block">
               <div className="flex items-baseline space-x-4">
                 <Link
