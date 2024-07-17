@@ -1,0 +1,15 @@
+{
+  "title": "Calcolatore dell'impronta ecologica di un viaggio aereo",
+  "loadingAirports": "Sto caricando gli aeroporti...",
+  "errorLoadingAirports": "Errore caricamento aeroporti",
+  "departureAirport": "Aeroporto di partenza",
+  "arrivalAirport": "Aeroporto di arrivo",
+  "searchAirport": "Cerca aeroporto (es. BGY / Orio al Serio / Italia)",
+  "passengersInput": "Numero di passeggeri",
+  "enterNumber": "Inserisci un numero",
+  "calculating": "Sto calcolando...",
+  "errorCalculating": "Errore nel calcolo dell'impronta",
+  "resultMessage": "L'impronta ecologica del tuo viaggio è circa: <b>{{footprint}}</b> kg di CO2e",
+  "calculateButton": "Calcola",
+  "resetButton": "Ripristina"
+}

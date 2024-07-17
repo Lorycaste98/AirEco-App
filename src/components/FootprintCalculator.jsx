@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import AirportInput from './AirportInput';
 import PassengerInput from './PassengerInput';
 import CalculateButton from './Buttons/CalculateButton';
@@ -9,6 +10,7 @@ import DarkModeContext from '../stores/DarkModeContext';
 
 // FUNZIONE PRINCIPALE DEL COMPONENTE CHE UNISCE TUTTI I COMPONENTI
 function FootprintCalculator() {
+  const { t } = useTranslation('footprintCalculator');
   const {
     departureAirport,
     arrivalAirport,
@@ -55,17 +57,19 @@ function FootprintCalculator() {
     >
       <div className="mx-auto w-full max-w-[320px] sm:max-w-sm md:max-w-2xl py-4 px-10 md:px-4 bg-white dark:bg-slate-800 shadow-md rounded-lg">
         <h2 className="text-xl font-bold text-center mb-4 dark:text-white uppercase underline underline-offset-4 decoration-[#008037]">
-          Calcolatore dell'impronta ecologica di un viaggio aereo
+          {t('title')}
         </h2>
         {airportsLoading ? (
-          <p>Sto caricando gli aeroporti...</p>
+          <p>{t('loadingAirports')}</p>
         ) : airportsError ? (
-          <p>Errore caricamento aeroporti: {airportsError.message}</p>
+          <p>
+            {t('errorLoadingAirports')}: {airportsError.message}
+          </p>
         ) : (
           <>
             <AirportInput
-              label="Aeroporto di partenza"
-              placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
+              label={t('departureAirport')}
+              placeholder={t('searchAirport')}
               value={departureAirport}
               onChange={(e) => handleDepartureChange(e, setDepartureAirport, handleSearch)}
               onKeyDown={(e) => handleKeyDown(e, 'departure')}
@@ -74,8 +78,8 @@ function FootprintCalculator() {
               handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'departure')}
             />
             <AirportInput
-              label="Aeroporto di arrivo"
-              placeholder="Cerca aeroporto (es. BGY / Orio al Serio / Italia)"
+              label={t('arrivalAirport')}
+              placeholder={t('searchAirport')}
               value={arrivalAirport}
               onChange={(e) => handleArrivalChange(e, setArrivalAirport, handleSearch)}
               onKeyDown={(e) => handleKeyDown(e, 'arrival')}
@@ -84,7 +88,8 @@ function FootprintCalculator() {
               handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
             />
             <PassengerInput
-              placeholder="Inserisci un numero"
+              label={t('passengersInput')}
+              placeholder={t('enterNumber')}
               value={passengers}
               onChange={(newValue) => setPassengers(newValue)}
             />
@@ -93,9 +98,11 @@ function FootprintCalculator() {
               <ResetButton onClick={resetFields} />
             </div>
             {footprintLoading ? (
-              <p>Sto calcolando...</p>
+              <p>{t('calculating')}</p>
             ) : footprintError ? (
-              <p>Errore nel calcolo: {footprintError.message}</p>
+              <p>
+                {t('errorCalculating')}: {footprintError.message}
+              </p>
             ) : (
               <Result footprint={footprint} />
             )}

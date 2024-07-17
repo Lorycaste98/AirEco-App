@@ -1,0 +1,10 @@
+{
+  "contactsTitle": "Contacts",
+  "fullName": "Full Name",
+  "fullNamePlaceholder": "Write your full name",
+  "email": "E-mail",
+  "emailPlaceholder": "Write your e-mail",
+  "message": "Message",
+  "messagePlaceholder": "Write your message",
+  "send": "Send"
+}

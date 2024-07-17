@@ -1,11 +1,14 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // COMPONENTE PER IL RISULTATO DEL CALCOLO
 function Result({ footprint }) {
+  const { t } = useTranslation();
+
   return (
     footprint !== null && (
       <p className="mt-8 text-center text-2xl dark:text-white no-transition">
-        L'impronta ecologica del tuo viaggio è: <b>{footprint}</b> unità di CO2
+        <span dangerouslySetInnerHTML={{ __html: t('resultMessage', { footprint }) }} />
       </p>
     )
   );

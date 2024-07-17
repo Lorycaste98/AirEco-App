@@ -1,0 +1,10 @@
+{
+  "contactsTitle": "Contatti",
+  "fullName": "Nome e Cognome",
+  "fullNamePlaceholder": "Scrivi il tuo nome e cognome",
+  "email": "E-mail",
+  "emailPlaceholder": "Scrivi la tua mail",
+  "message": "Messaggio",
+  "messagePlaceholder": "Scrivi il tuo messaggio",
+  "send": "Invia"
+}

@@ -1,7 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 // COMPONENTE PER IL PULSANTE DI CALCOLO
 function CalculateButton({ onClick, disabled }) {
+  // Traduzioni
+  const { t } = useTranslation('footprintCalculator');
+
   return (
     <button
       onClick={onClick}
@@ -10,7 +14,7 @@ function CalculateButton({ onClick, disabled }) {
       }`}
       disabled={disabled}
     >
-      Calcola
+      {t('calculateButton')}
     </button>
   );
 }

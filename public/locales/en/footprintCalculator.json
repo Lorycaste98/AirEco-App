@@ -1,0 +1,15 @@
+{
+  "title": "Flight Footprint Calculator",
+  "loadingAirports": "Loading airports...",
+  "errorLoadingAirports": "Error loading airports",
+  "departureAirport": "Departure Airport",
+  "arrivalAirport": "Arrival Airport",
+  "searchAirport": "Search airport (ex. BGY / Orio al Serio / Italy)",
+  "passengersInput": "Number of passengers",
+  "enterNumber": "Enter a number",
+  "calculating": "Calculating...",
+  "errorCalculating": "Error calculating footprint",
+  "resultMessage": "The flight footprint is approximately: <b>{{footprint}}</b> kg CO2e",
+  "calculateButton": "Calculate",
+  "resetButton": "Reset"
+}

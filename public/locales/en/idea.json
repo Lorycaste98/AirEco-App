@@ -1,0 +1,12 @@
+{
+  "ideaTitle": "The idea for app development",
+  "paragrapgh1": "This app was developed as the final project of the Start2Impact University.",
+  "paragrapgh2": "The goal was to create an interface calculates the footprint (ecological footprint) of a flight travel.",
+  "steps": "STEPS:",
+  "step1": "I started my project by creating a very simple basic layout to work right on the logic that fetches airport data from an API.",
+  "step2": "Una volta funzionante ho reso il layout dell'app responsive e più intuitivo mentre al form ho aggiunto un menu a tendina per mostrare i suggerimenti degli aeroporti e il campo per il numero di passeggeri.",
+  "step3": "Next I worked on the API that lets you calculate the footprint and this is possible only if all the fields are filled in correctly then I also added a reset button that allows you to clean up the fields. The result is sent to the screen in a dedicated box below the buttons.",
+  "step4": "I wanted to create two additional features: the first is the ability to change the theme of the app (day/night), and the second is the ability to change the language from Italian to English or vice versa. These features were implemented to improve the user experience and can be activated by two fixed buttons at the bottom of the screen.",
+  "step5": "Finally, I created a Navbar and Footer component for navigation and two other components: one to explain the idea behind the app and the other for contacts.",
+  "technologies": "Technologies used:"
+}
