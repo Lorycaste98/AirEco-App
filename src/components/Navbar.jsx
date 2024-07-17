@@ -9,11 +9,16 @@ import { NavLink } from 'react-router-dom';
 import LanguageSwitchButton from './Buttons/LanguageSwitchButton';
 import { useTranslation } from 'react-i18next';
 
+// COMPONENTE PER LA NAVBAR
 function Navbar() {
+  // Recupera il valore di darkMode e la funzione per cambiarlo dal contesto
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const [isOpen, setIsOpen] = useState(false);
 
+  // Traduzioni
   const { t } = useTranslation('common');
+
+  // Stato per il menu mobile
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

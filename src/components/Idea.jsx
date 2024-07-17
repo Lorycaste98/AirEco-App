@@ -4,6 +4,7 @@ import languagesData from '../data/languagesData';
 import { useTranslation } from 'react-i18next';
 
 function Idea() {
+  //Traduzioni
   const { t } = useTranslation('idea');
 
   // Recupera il valore di darkMode dal contesto

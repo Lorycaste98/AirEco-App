@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  // Traduzioni
   const { t } = useTranslation('common');
 
   return (

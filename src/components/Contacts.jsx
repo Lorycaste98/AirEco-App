@@ -5,11 +5,13 @@ import socialMediaData from '../data/socialMediaData';
 import { useTranslation } from 'react-i18next';
 
 function Contacts() {
+  // Traduzioni
   const { t } = useTranslation('contacts');
 
   // Recupera il valore di darkMode dal contesto
   const { darkMode } = useContext(DarkModeContext);
 
+  // Collegamento a emailjs per ricezione delle mail dal form
   const form = useRef();
 
   const sendEmail = (e) => {

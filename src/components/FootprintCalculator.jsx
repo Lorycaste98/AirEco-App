@@ -10,7 +10,9 @@ import DarkModeContext from '../stores/DarkModeContext';
 
 // FUNZIONE PRINCIPALE DEL COMPONENTE CHE UNISCE TUTTI I COMPONENTI
 function FootprintCalculator() {
+  // Traduzioni
   const { t } = useTranslation('footprintCalculator');
+
   const {
     departureAirport,
     arrivalAirport,
