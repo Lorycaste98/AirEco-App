@@ -17,13 +17,13 @@ The app is full resposive and contains two special features:
 
 ### My skills for this project
 
-- ![My Skill](https://skillicons.dev/icons?i=html)
-- ![My Skill](https://skillicons.dev/icons?i=css)
-- ![My Skill](https://skillicons.dev/icons?i=js)
-- ![My Skill](https://skillicons.dev/icons?i=tailwind)
-- ![My Skill](https://skillicons.dev/icons?i=react)
-- ![My Skill](https://skillicons.dev/icons?i=nodejs)
-- ![My Skill](https://skillicons.dev/icons?i=git)
+![My Skill](https://skillicons.dev/icons?i=html)
+![My Skill](https://skillicons.dev/icons?i=css)
+![My Skill](https://skillicons.dev/icons?i=js)
+![My Skill](https://skillicons.dev/icons?i=tailwind)
+![My Skill](https://skillicons.dev/icons?i=react)
+![My Skill](https://skillicons.dev/icons?i=nodejs)
+![My Skill](https://skillicons.dev/icons?i=git)
 
 ## License
 
