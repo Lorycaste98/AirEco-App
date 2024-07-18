@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 // COMPONENTE PER IL RISULTATO DEL CALCOLO
 function Result({ footprint }) {
   // Traduzioni
-  const { t } = useTranslation();
+  const { t } = useTranslation('footprintCalculator');
 
   return (
     footprint !== null && (

@@ -35,7 +35,7 @@ function Contacts() {
 
   return (
     <section
-      className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
+      className={`py-36 lg:py-16 flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
         darkMode ? 'dark' : ''
       }`}
     >
@@ -47,7 +47,9 @@ function Contacts() {
           {/* Form di contatto */}
           <form className="w-full" ref={form} onSubmit={sendEmail}>
             <fieldset className="mb-6">
-              <legend className="text-lg font-semibold text-gray-700 dark:text-white mb-4">{t('contactForm')}</legend>
+              <legend className="text-lg font-medium italic text-gray-700 dark:text-white mb-4">
+                {t('contactForm')}
+              </legend>
               <div className="px-2">
                 <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('fullName')}</label>
                 <input

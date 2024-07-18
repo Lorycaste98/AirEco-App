@@ -51,6 +51,18 @@ function FootprintCalculator() {
     handleSearch(e.target.value, 'arrival');
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (canCalculate) {
+      calculateFootprint();
+    }
+  };
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    resetFields();
+  };
+
   return (
     <section
       className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
@@ -99,8 +111,8 @@ function FootprintCalculator() {
               />
             </fieldset>
             <div className="flex flex-col gap-3 md:flex-row mt-3">
-              <CalculateButton onClick={calculateFootprint} disabled={!canCalculate || footprintLoading} />
-              <ResetButton onClick={resetFields} />
+              <CalculateButton onClick={handleSubmit} disabled={!canCalculate || footprintLoading} />
+              <ResetButton onClick={handleReset} />
             </div>
           </form>
         )}
