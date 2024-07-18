@@ -74,9 +74,9 @@ function FootprintCalculator() {
           {t('title')}
         </h2>
         {airportsLoading ? (
-          <p>{t('loadingAirports')}</p>
+          <p className="dark:text-white">{t('loadingAirports')}</p>
         ) : airportsError ? (
-          <p>
+          <p className="dark:text-white">
             {t('errorLoadingAirports')}: {airportsError.message}
           </p>
         ) : (
@@ -117,9 +117,9 @@ function FootprintCalculator() {
           </form>
         )}
         {footprintLoading ? (
-          <p>{t('calculating')}</p>
+          <p className="dark:text-white">{t('calculating')}</p>
         ) : footprintError ? (
-          <p>
+          <p className="dark:text-white">
             {t('errorCalculating')}: {footprintError.message}
           </p>
         ) : (
