@@ -52,7 +52,7 @@ function FootprintCalculator() {
   };
 
   return (
-    <div
+    <section
       className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
         darkMode ? 'dark' : ''
       }`}
@@ -68,50 +68,53 @@ function FootprintCalculator() {
             {t('errorLoadingAirports')}: {airportsError.message}
           </p>
         ) : (
-          <>
-            <AirportInput
-              label={t('departureAirport')}
-              placeholder={t('searchAirport')}
-              value={departureAirport}
-              onChange={(e) => handleDepartureChange(e, setDepartureAirport, handleSearch)}
-              onKeyDown={(e) => handleKeyDown(e, 'departure')}
-              suggestions={suggestions.departure}
-              selectedIndex={selectedIndex.departure}
-              handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'departure')}
-            />
-            <AirportInput
-              label={t('arrivalAirport')}
-              placeholder={t('searchAirport')}
-              value={arrivalAirport}
-              onChange={(e) => handleArrivalChange(e, setArrivalAirport, handleSearch)}
-              onKeyDown={(e) => handleKeyDown(e, 'arrival')}
-              suggestions={suggestions.arrival}
-              selectedIndex={selectedIndex.arrival}
-              handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
-            />
-            <PassengerInput
-              label={t('passengersInput')}
-              placeholder={t('enterNumber')}
-              value={passengers}
-              onChange={(newValue) => setPassengers(newValue)}
-            />
+          <form>
+            <fieldset>
+              <legend className="sr-only">{t('title')}</legend>
+              <AirportInput
+                label={t('departureAirport')}
+                placeholder={t('searchAirport')}
+                value={departureAirport}
+                onChange={(e) => handleDepartureChange(e, setDepartureAirport, handleSearch)}
+                onKeyDown={(e) => handleKeyDown(e, 'departure')}
+                suggestions={suggestions.departure}
+                selectedIndex={selectedIndex.departure}
+                handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'departure')}
+              />
+              <AirportInput
+                label={t('arrivalAirport')}
+                placeholder={t('searchAirport')}
+                value={arrivalAirport}
+                onChange={(e) => handleArrivalChange(e, setArrivalAirport, handleSearch)}
+                onKeyDown={(e) => handleKeyDown(e, 'arrival')}
+                suggestions={suggestions.arrival}
+                selectedIndex={selectedIndex.arrival}
+                handleSuggestionClick={(airport) => handleSuggestionClick(airport, 'arrival')}
+              />
+              <PassengerInput
+                label={t('passengersInput')}
+                placeholder={t('enterNumber')}
+                value={passengers}
+                onChange={(newValue) => setPassengers(newValue)}
+              />
+            </fieldset>
             <div className="flex flex-col gap-3 md:flex-row mt-3">
               <CalculateButton onClick={calculateFootprint} disabled={!canCalculate || footprintLoading} />
               <ResetButton onClick={resetFields} />
             </div>
-            {footprintLoading ? (
-              <p>{t('calculating')}</p>
-            ) : footprintError ? (
-              <p>
-                {t('errorCalculating')}: {footprintError.message}
-              </p>
-            ) : (
-              <Result footprint={footprint} />
-            )}
-          </>
+          </form>
+        )}
+        {footprintLoading ? (
+          <p>{t('calculating')}</p>
+        ) : footprintError ? (
+          <p>
+            {t('errorCalculating')}: {footprintError.message}
+          </p>
+        ) : (
+          <Result footprint={footprint} />
         )}
       </div>
-    </div>
+    </section>
   );
 }
 

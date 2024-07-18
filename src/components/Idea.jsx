@@ -11,7 +11,7 @@ function Idea() {
   const { darkMode } = useContext(DarkModeContext);
 
   return (
-    <div
+    <section
       className={`py-36 lg:py-16
          flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
            darkMode ? 'dark' : ''
@@ -53,7 +53,7 @@ function Idea() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

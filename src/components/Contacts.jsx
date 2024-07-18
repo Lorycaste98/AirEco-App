@@ -34,7 +34,7 @@ function Contacts() {
   };
 
   return (
-    <div
+    <section
       className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
         darkMode ? 'dark' : ''
       }`}
@@ -46,49 +46,52 @@ function Contacts() {
         <div className="min-w-full flex flex-col md:flex-row gap-6">
           {/* Form di contatto */}
           <form className="w-full" ref={form} onSubmit={sendEmail}>
-            <div>
-              <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('fullName')}</label>
-              <input
-                name="name"
-                type="text"
-                className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
-                placeholder={t('fullNamePlaceholder')}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('email')}</label>
-              <input
-                name="email"
-                type="email"
-                className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
-                placeholder={t('emailPlaceholder')}
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('message')}</label>
-              <textarea
-                name="message"
-                rows="4"
-                className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
-                placeholder={t('messagePlaceholder')}
-                required
-              ></textarea>
-            </div>
-            <div>
-              <button
-                type="submit"
-                className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 active:bg-blue-900"
-              >
-                {t('send')}
-              </button>
-            </div>
+            <fieldset className="mb-6">
+              <legend className="text-lg font-semibold text-gray-700 dark:text-white mb-4">{t('contactForm')}</legend>
+              <div className="px-2">
+                <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('fullName')}</label>
+                <input
+                  name="name"
+                  type="text"
+                  className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
+                  placeholder={t('fullNamePlaceholder')}
+                  required
+                />
+              </div>
+              <div className="px-2">
+                <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('email')}</label>
+                <input
+                  name="email"
+                  type="email"
+                  className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
+                  placeholder={t('emailPlaceholder')}
+                  required
+                />
+              </div>
+              <div className="px-2">
+                <label className="block text-gray-700 dark:text-white text-sm md:text-base mb-2">{t('message')}</label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  className="w-full p-2 mb-4 text-gray-700 dark:text-white bg-gray-200 dark:bg-slate-800 rounded border border-gray-300 text-sm md:text-base"
+                  placeholder={t('messagePlaceholder')}
+                  required
+                ></textarea>
+              </div>
+              <div className="px-2">
+                <button
+                  type="submit"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 active:bg-blue-900"
+                >
+                  {t('send')}
+                </button>
+              </div>
+            </fieldset>
           </form>
         </div>
 
         {/* Box social media */}
-        <h2 className="text-lg font-semibold text-center dark:text-white mt-8">Social Media:</h2>
+        <h2 className="text-lg font-semibold text-center dark:text-white mt-6">Social Media:</h2>
         <div className="w-1/3 mx-auto flex justify-center gap-2 md:gap-6 mt-4">
           {socialMediaData.map((social, index) => (
             <a
@@ -106,7 +109,7 @@ function Contacts() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
