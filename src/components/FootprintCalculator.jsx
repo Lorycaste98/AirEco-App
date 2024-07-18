@@ -65,7 +65,7 @@ function FootprintCalculator() {
 
   return (
     <section
-      className={`flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
+      className={`py-36 lg:py-16 flex flex-col items-center justify-center min-h-screen bg-slate-200 dark:bg-gray-700 ${
         darkMode ? 'dark' : ''
       }`}
     >

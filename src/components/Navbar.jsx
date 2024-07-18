@@ -24,7 +24,7 @@ function Navbar() {
   };
 
   return (
-    <header className={`${darkMode ? 'dark' : ''} fixed w-full top-0`}>
+    <header className={`${darkMode ? 'dark' : ''} fixed w-full top-0 z-[1000]`}>
       <nav className="bg-white shadow-md w-full dark:bg-slate-800">
         <div className="flex justify-between items-center max-w-[1000px] mx-auto px-4 sm:px-6 lg:px-8 h-24">
           <NavLink to="/" className="flex-shrink-0 flex items-center gap-4">

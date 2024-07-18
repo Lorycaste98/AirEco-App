@@ -20,7 +20,7 @@ function LanguageSwitchButton() {
   return (
     <button
       onClick={toggleLanguage}
-      className="fixed w-14 h-14 bottom-40 right-6 md:right-12 rounded-full bg-slate-800 dark:bg-white text-white dark:text-slate-800 flex justify-center items-center z-[200]"
+      className="fixed w-14 h-14 bottom-36 right-3 md:right-12 rounded-full bg-slate-800 dark:bg-white text-white dark:text-slate-800 flex justify-center items-center z-[200]"
     >
       <FlagIcon code={getFlagCode()} size={24} />
     </button>
