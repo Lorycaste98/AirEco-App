@@ -35,10 +35,3 @@ Released under the Apache License 2.0. Refer to LICENSE.txt for additional detai
 [![Linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/lorenzo-castelletti-532b9b191/)
 [![Github](https://skillicons.dev/icons?i=github)](https://github.com/Lorycaste98)
 
-
-
-
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
